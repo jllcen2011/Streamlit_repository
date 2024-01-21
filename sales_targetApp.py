@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 from PIL import Image
-# import plotly.graph_objects as go
+import plotly.graph_objects as go
 import calendar
 import io
 import os
@@ -969,29 +969,29 @@ total_ano_anterior_2 = df23_area_subdiv['Total Ano (€)_anterior'].sum()
 
 
 # construindo os gráficos de pizza de quantidade e vendas
-#fig1 = go.Figure(data=[go.Pie(labels=df19_subtotal['Subdivisão'],
-#                              values=df19_subtotal['Qtd próx. ano'])])
-#fig1.update_traces(hoverinfo='value', textinfo='label+percent', textfont_size=12,
-#                  marker=dict(colors=['#a1c9a4', '#066555'], line=dict(color='#000000', width=0.5)))
-#fig1.update_layout(showlegend=False,
-#                   width=200,
-#                   height=150,
-#                   margin=dict(l=20, r=20, b=20, t=30),
-#                   paper_bgcolor='#f5f5f5',
-#                   font=dict(color='#31333F', size=15)
-#                   )
+fig1 = go.Figure(data=[go.Pie(labels=df19_subtotal['Subdivisão'],
+                              values=df19_subtotal['Qtd próx. ano'])])
+fig1.update_traces(hoverinfo='value', textinfo='label+percent', textfont_size=12,
+                  marker=dict(colors=['#a1c9a4', '#066555'], line=dict(color='#000000', width=0.5)))
+fig1.update_layout(showlegend=False,
+                   width=200,
+                   height=150,
+                   margin=dict(l=20, r=20, b=20, t=30),
+                   paper_bgcolor='#f5f5f5',
+                   font=dict(color='#31333F', size=15)
+                   )
 
-# fig2 = go.Figure(data=[go.Pie(labels=df20_subtotal['Subdivisão'],
-#                              values=df20_subtotal['Vendas próx. ano (€)'])])
-# fig2.update_traces(hoverinfo='value', textinfo='label+percent', textfont_size=12,
-#                   marker=dict(colors=['#a1c9a4', '#066555'], line=dict(color='#000000', width=0.5)))
-# fig2.update_layout(showlegend=False,
-#                   width=200,
-#                   height=150,
-#                   margin=dict(l=20, r=20, b=20, t=30),
-#                   paper_bgcolor='#f5f5f5',
-#                   font=dict(color='#31333F', size=15)
-#                   )
+fig2 = go.Figure(data=[go.Pie(labels=df20_subtotal['Subdivisão'],
+                              values=df20_subtotal['Vendas próx. ano (€)'])])
+fig2.update_traces(hoverinfo='value', textinfo='label+percent', textfont_size=12,
+                   marker=dict(colors=['#a1c9a4', '#066555'], line=dict(color='#000000', width=0.5)))
+fig2.update_layout(showlegend=False,
+                   width=200,
+                   height=150,
+                   margin=dict(l=20, r=20, b=20, t=30),
+                   paper_bgcolor='#f5f5f5',
+                   font=dict(color='#31333F', size=15)
+                   )
 
 # montando e postando as métricas relativas à quantidade
 variacao_rel_1 = (
@@ -1012,7 +1012,7 @@ col9.metric(f'Previsão {ano_corrente} em Quantidade', total_ano_corrente_1,
             delta=f'{variacao_abs_1} ({variacao_rel_1} %)')
 col10.metric(f'Meta {proximo_ano} em Quantidade', total_proximo_ano_1,
              delta=f'{variacao_abs_2} ({variacao_rel_2} %)')
-# col11.write(fig1)
+col11.write(fig1)
 
 # montando e postando as métricas relativas à venda
 variacao_rel_3 = (
@@ -1034,7 +1034,7 @@ col14.metric(f'Previsão {ano_corrente} em Vendas', total_ano_corrente_2,
              delta=f'{variacao_abs_3} ({variacao_rel_3} %)')
 col15.metric(f'Meta {proximo_ano} em Vendas', total_proximo_ano_2,
              delta=f'{variacao_abs_4} ({variacao_rel_4} %)')
-# col16.write(fig2)
+col16.write(fig2)
 
 #################################### Resumo - Montando e postando as métricas 2 #################################
 
