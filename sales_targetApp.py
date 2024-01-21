@@ -523,9 +523,9 @@ excel_budget = convert_df_to_excel(df9_design)
 
 # Criando o botão de download
 
-colunas_1 = st.columns(6)
+colunas_1 = st.columns(4)
 
-colunas_1[4].download_button(
+colunas_1[2].download_button(
     label="Descarregar Budget",
     data=excel_budget,
     file_name='Metas_2024.xlsx',
@@ -562,7 +562,7 @@ def clicked(button):
 
 # Criação do botão 'Limpar Metas'. Quando o botão é clicado, ele chama a função clicked
 # com o argumento 1, que corresponde a esse botão, transformando o botão em True no estado de sessão.
-colunas_1[5].button('Limpar Metas', on_click=clicked, args=[1])
+colunas_1[3].button('Limpar Metas', on_click=clicked, args=[1])
 
 # Portanto, quando clicar no botão 1, ele vai virar True, e aí esse primeiro conditional abaixo vai começar a rodar.
 if st.session_state.clicked[1]:
@@ -869,9 +869,9 @@ df18_styled = df18_styled.format({'Qtd próx. ano': "{:,.0f}".format,
 # Para a criação do botão de download, antes se aplica a função que converte dataframe em excel
 excel_mensualizado = convert_df_to_excel(df18_styled)
 
-colunas_2 = st.columns(4)
+colunas_2 = st.columns(3)
 
-colunas_2[3].download_button(
+colunas_2[2].download_button(
     label="Descarregar Mensualizado",
     data=excel_mensualizado,
     file_name='Metas_2024_Mensualizado.xlsx',
@@ -905,7 +905,7 @@ with zipfile.ZipFile(zip_buffer, 'a', zipfile.ZIP_DEFLATED, False) as zip_file:
 zip_buffer.seek(0)
 
 # Com o zip file salvo, vou criar o botão para seu download.
-colunas_2[2].download_button(
+colunas_2[1].download_button(
     label="Corrigir Zerados",
     data=zip_buffer,
     file_name=f'corrigir_zerados_{proximo_ano}.zip',
@@ -1213,9 +1213,11 @@ st.dataframe(
 
 excel_resumo = convert_df_to_excel(df28_styled)
 
-col18, col19, col20 = st.columns([0.3, 0.1, 0.1])
+# col18, col19, col20 = st.columns([0.3, 0.1, 0.1])
 
-col20.download_button(
+colunas_3 = st.columns(3)
+
+colunas_3[2].download_button(
     label="Descarregar Resumo",
     data=excel_resumo,
     file_name=f'Metas_2024_resumo.xlsx',
