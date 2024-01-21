@@ -7,6 +7,7 @@ import io
 import os
 import zipfile
 from io import BytesIO
+import xlsxwriter
 from xlsxwriter import Workbook
 
 # Criando essas três variáveis que serão usadas ao longo do script. O Ano anterior foi criado somente para
