@@ -512,7 +512,7 @@ def convert_df_to_excel(df):
     excel_buffer = io.BytesIO()
 
     # Use Pandas to write the DataFrame to the buffer as an Excel file
-    with pd.ExcelWriter(excel_buffer, engine='xlsxwriter', mode='xlsx') as writer:
+    with pd.ExcelWriter(excel_buffer, engine='openpyxl', mode='xlsx') as writer:
         df.to_excel(writer, index=False)
 
     return excel_buffer
