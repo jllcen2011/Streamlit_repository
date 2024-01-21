@@ -433,7 +433,7 @@ def color_negative_red(val):
 
 
 # Aplicando a formatação nas colunas específicas
-df9_design = df9_design.style.map(color_negative_red, subset=[
+df9_design = df9_design.style.applymap(color_negative_red, subset=[
                                  '% N-1 (Qtd)', '% N-1 (€)'])
 
 ###################################################### Postando o Dataframe (Budget) #################################################
