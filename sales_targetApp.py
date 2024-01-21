@@ -7,6 +7,7 @@ import io
 import os
 import zipfile
 from io import BytesIO
+pip install openpyxl
 
 # Criando essas três variáveis que serão usadas ao longo do script. O Ano anterior foi criado somente para
 # se comparar com o ano atual e verificar o percentual de crescimento entre eles. Próximo ano é usado para alguns
