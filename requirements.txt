@@ -1,1 +1,2 @@
-XlsxWriter
+pandas
+xlsxwriter
