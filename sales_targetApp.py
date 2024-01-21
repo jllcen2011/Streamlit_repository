@@ -523,9 +523,9 @@ excel_budget = convert_df_to_excel(df9_design)
 
 # Criando o botão de download
 
-colunas_1 = st.columns(4)
+colunas_1 = st.columns(3)
 
-colunas_1[2].download_button(
+colunas_1[1].download_button(
     label="Descarregar Budget",
     data=excel_budget,
     file_name='Metas_2024.xlsx',
@@ -562,7 +562,7 @@ def clicked(button):
 
 # Criação do botão 'Limpar Metas'. Quando o botão é clicado, ele chama a função clicked
 # com o argumento 1, que corresponde a esse botão, transformando o botão em True no estado de sessão.
-colunas_1[3].button('Limpar Metas', on_click=clicked, args=[1])
+colunas_1[2].button('Limpar Metas', on_click=clicked, args=[1])
 
 # Portanto, quando clicar no botão 1, ele vai virar True, e aí esse primeiro conditional abaixo vai começar a rodar.
 if st.session_state.clicked[1]:
